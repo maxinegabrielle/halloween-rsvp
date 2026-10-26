@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RSVP — Halloween Party</title>
+<style>
+  html, body { height: 100%; margin: 0; }
+  body { background: #000; color: #fff; font-family: Arial, Helvetica, sans-serif; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; box-sizing: border-box; }
+  .wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; max-width: 360px; }
+  h1 { margin: 0; font-size: 34px; color: #F0287A; letter-spacing: -0.01em; }
+  p { margin: 0; font-size: 16px; line-height: 1.5; }
+  a.btn { display: flex; align-items: center; justify-content: center; height: 54px; padding: 0 36px; background: #E298E1; color: #000; font-weight: 700; font-size: 17px; letter-spacing: 0.08em; text-decoration: none; }
+  .num { font-weight: 700; user-select: all; -webkit-user-select: all; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>RSVP</h1>
+  <p>Opening Messages…</p>
+  <a id="go" class="btn" href="sms:+14242704028?body=Thanks%20for%20the%20party%20invite%2C%20i%20can%20make%20it!">OPEN MESSAGES</a>
+  <p>Or text <span class="num">+1 424-270-4028</span>:<br>“Thanks for the party invite, i can make it!”</p>
+</div>
+<script>
+  var PHONE = '+14242704028';
+  var MSG = encodeURIComponent('Thanks for the party invite, i can make it!');
+  var apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  var url = apple ? 'sms://' + PHONE + '&body=' + MSG : 'sms:' + PHONE + '?body=' + MSG;
+  document.getElementById('go').href = url;
+  setTimeout(function () { window.location.href = url; }, 150);
+</script>
+</body>
+</html>
