@@ -19,15 +19,3 @@
   <h1>RSVP</h1>
   <p>Opening Messages…</p>
   <a id="go" class="btn" href="sms:+14242704028?body=Thanks%20for%20the%20party%20invite%2C%20i%20can%20make%20it!">OPEN MESSAGES</a>
-  <p>Or text <span class="num">+1 424-270-4028</span>:<br>“Thanks for the party invite, i can make it!”</p>
-</div>
-<script>
-  var PHONE = '+14242704028';
-  var MSG = encodeURIComponent('Thanks for the party invite, i can make it!');
-  var apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-  var url = apple ? 'sms://' + PHONE + '&body=' + MSG : 'sms:' + PHONE + '?body=' + MSG;
-  document.getElementById('go').href = url;
-  setTimeout(function () { window.location.href = url; }, 150);
-</script>
-</body>
-</html>
